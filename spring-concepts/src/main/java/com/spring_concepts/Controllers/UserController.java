@@ -17,7 +17,7 @@ public class UserController {
     public static List<String> users;
 
     static {
-        users = new ArrayList<>();
+        users =   new ArrayList<>();
         users.add("Manoj");
         users.add("Ram");
         users.add("Hanuman");
