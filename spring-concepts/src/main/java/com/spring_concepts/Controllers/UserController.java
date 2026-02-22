@@ -1,11 +1,11 @@
 package com.spring_concepts.Controllers;
 
+import com.spring_concepts.Dao.UserDao;
+import com.spring_concepts.dto.UserDto;
 import com.spring_concepts.services.TransactionService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,7 @@ public class UserController {
 
     private TransactionService transactionService;
     public static List<String> users;
+    private final UserDao userDao;
 
     static {
         users =   new ArrayList<>();
@@ -41,5 +42,11 @@ public class UserController {
     @GetMapping
     public List<String> getAllUsers_ExceptionResolver(){
         return users;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) throws Exception{
+        userDao.insertUser(userDto);
+        return ResponseEntity.ok(userDto);
     }
 }

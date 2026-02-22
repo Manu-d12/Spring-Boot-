@@ -2,15 +2,22 @@ package com.spring_concepts.services;
 
 
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 @Service
+@AllArgsConstructor
 public class TransactionService {
 
-    @Autowired
     private TransactionService_2 transactionService2;
+
+
 
 
     @Transactional
