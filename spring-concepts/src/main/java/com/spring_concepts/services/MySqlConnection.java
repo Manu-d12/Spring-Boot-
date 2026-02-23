@@ -1,11 +1,8 @@
 package com.spring_concepts.services;
 
 import org.springframework.stereotype.Component;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-
 
 @Component
 public final class MySqlConnection {

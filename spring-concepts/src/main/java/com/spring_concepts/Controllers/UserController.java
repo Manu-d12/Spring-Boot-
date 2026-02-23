@@ -1,6 +1,7 @@
 package com.spring_concepts.Controllers;
 
 import com.spring_concepts.Dao.UserDao;
+import com.spring_concepts.dto.SpringJdbcTemplate;
 import com.spring_concepts.dto.UserDto;
 import com.spring_concepts.services.TransactionService;
 import lombok.AllArgsConstructor;
@@ -15,9 +16,10 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private TransactionService transactionService;
+    private final TransactionService transactionService;
     public static List<String> users;
     private final UserDao userDao;
+    private final SpringJdbcTemplate springJdbcTemplate;
 
     static {
         users =   new ArrayList<>();
@@ -46,7 +48,8 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) throws Exception{
-        userDao.insertUser(userDto);
+//        userDao.insertUser(userDto);
+        springJdbcTemplate.insertUser(userDto);
         return ResponseEntity.ok(userDto);
     }
 }
