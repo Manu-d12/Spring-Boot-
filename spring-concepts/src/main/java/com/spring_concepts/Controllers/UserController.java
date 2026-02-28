@@ -5,11 +5,14 @@ import com.spring_concepts.dto.SpringJdbcTemplate;
 import com.spring_concepts.dto.UserDto;
 import com.spring_concepts.services.TransactionService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//JpaRepository
 
 @RestController
 @AllArgsConstructor
